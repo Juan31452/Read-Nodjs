@@ -55,16 +55,17 @@ function Login() {
        setTipo_usuario(res.data.tipo_usuario); 
        login();
 
-        //window.location.replace('/VerAgricultor');    
       }  
      });
     
-   // if (contraseña === miclave) {
-   //   login();
-   // }  
     
   }
   
+  // Aquí setteas la propiedad.
+Login.global = {
+  correo: email
+};
+
   useEffect(() => {
     if(isNull(tipo_usuario)){
       console.log('no render!')
@@ -103,4 +104,5 @@ function Login() {
     
   )
 }
+
 export default Login;

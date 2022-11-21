@@ -47,7 +47,6 @@ const CrearUsuario = () => {
   return (
     <div>
     <Form onSubmit={GuardarDatos}>
-    <div>REGISTRATE.</div>
     <div>
         <label htmlFor="elemail">Email:</label>
         <input type="text" value={email} onChange={ev => setEmail(ev.target.value)} />

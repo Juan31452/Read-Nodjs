@@ -7,10 +7,12 @@ export const AuthContext = createContext();
 
 export default function AuthContextProvider({children}) {
   const [isAuthenticated, setIsAuthenticated] = useState(window.localStorage.getItem(MY_AUTH_APP));
-
+  const[correo, setCorreo]= useState();
+   
   const login = useCallback(function () {
     window.localStorage.setItem(MY_AUTH_APP, true);
     setIsAuthenticated(true);
+    setCorreo("hola");
   }, []);
 
   const logout = useCallback(function () {
