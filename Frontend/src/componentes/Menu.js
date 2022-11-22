@@ -30,8 +30,9 @@ import CrearInver from "../paginas/inversion/CrearInversionista";
     return (
       <Container>
         <Layout />
-        <AuthContextProvider>
-        <Routes>
+        
+        <AuthContextProvider >
+       <Routes>
           
           <Route path="/" element={<PublicRoute />}> 
             <Route path="/Login" element={<Login />} />

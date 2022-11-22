@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import  {Form, Button } from 'react-bootstrap';
 import axios from "axios";
 import app from "./app.json";
@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../componentes/context/authContext";
 import {miclave} from '../componentes/context/Miclave';
 import mialerta from 'sweetalert';
+import ContextoUsuario from '../componentes/context/ContextoUsuario';
 
 function Login() {
   const {login} = useAuthContext();
@@ -16,7 +17,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  const [usuario1, setUsuario1] = useState("");
+  const {usuario} = useContext(ContextoUsuario);
   
   const {APIHOST}= app;
   const cookies = new Cookies();
@@ -43,7 +44,7 @@ function Login() {
      axios
      .post(`${APIHOST}/usuarios/login `,usuarioActual)
      .then((res) => { 
-      const usuario = res.data;
+      const usuario1 = res.data;
    
        if(isNull(res.data)){
       //alert("Usuario o Contraseña invalidos");
@@ -51,8 +52,9 @@ function Login() {
       console.log(usuarioActual);
       console.log(email);
       }else{
-       console.log(usuario)
-       setTipo_usuario(res.data.tipo_usuario); 
+       console.log(usuario1)
+      // setTipo_usuario(res.data.tipo_usuario); 
+       
        login();
 
       }  

@@ -19,6 +19,7 @@ export default function AuthContextProvider({children}) {
     window.localStorage.removeItem(MY_AUTH_APP, true);
     setIsAuthenticated(false);
   }, []);
+  
 
   const value = useMemo(
     () => ({
